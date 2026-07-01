@@ -11,7 +11,7 @@ de nationalité**.
 
 ## Fonctionnalités
 
-- Drag & drop unifié souris / tactile (colonne candidats scrollable)
+- Drag & drop unifié souris / tactile (colonne candidats **paginée** — flèches + points)
 - Partage **X / Facebook / WhatsApp**
 - **Téléchargement d'une image PNG** du classement (canvas) + **partage natif** mobile
 - Thème clair, accent or, responsive mobile (2 colonnes), auto-hauteur iframe
