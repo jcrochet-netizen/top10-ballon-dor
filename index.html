@@ -145,7 +145,7 @@
     <div id="shMsg"></div>
   </div>
 
-  <div class="foot">Photos : Sportmonks</div>
+  <div class="foot"></div>
 </div>
 
 <script>
@@ -309,7 +309,7 @@ async function buildCanvas(){
   const list = rankedItems();
   const imgs = {}; await Promise.all(list.map(async p=>{ imgs[p.id]=await loadImg(p.img); }));
   const GOLD='#b5851f', INK='#14181f', MUT='#6b7682';
-  const scale=2, W=680, pad=40, headH=112, rowH=62, rowGap=8, listTop=headH+8, footerH=48;
+  const scale=2, W=680, pad=40, headH=112, rowH=62, rowGap=8, listTop=headH+8, footerH=20;
   const n=Math.max(list.length,1), H=listTop + n*rowH + (n-1)*rowGap + footerH;
   const cv=document.createElement('canvas'); cv.width=W*scale; cv.height=H*scale;
   const ctx=cv.getContext('2d'); ctx.scale(scale,scale);
@@ -333,8 +333,6 @@ async function buildCanvas(){
     ctx.fillStyle=INK; ctx.font='700 17px '+FONT; ctx.textBaseline='alphabetic'; ctx.fillText(ellipsize(ctx,p.name,W-2*pad-170), nx, y+26);
     ctx.fillStyle=GOLD; ctx.font='600 13px '+FONT; ctx.fillText(ellipsize(ctx,p.country+' · '+p.club,W-2*pad-170), nx, y+46);
   });
-  ctx.textAlign='center'; ctx.textBaseline='alphabetic'; ctx.fillStyle=MUT; ctx.font='400 12px '+FONT;
-  ctx.fillText('Photos : Sportmonks', W/2, H-18);
   return cv;
 }
 const canvasToBlob = cv => new Promise(r=>cv.toBlob(r,'image/png'));
